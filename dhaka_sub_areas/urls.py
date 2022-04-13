@@ -18,6 +18,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/dhaka_sub_area', include('area.urls')),
+    path('api/dhaka_sub_area/', include('area.urls')),
     path('api-auth/', include('rest_framework.urls'))
 ]
