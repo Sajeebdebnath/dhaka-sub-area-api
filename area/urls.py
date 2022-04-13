@@ -1,6 +1,8 @@
 from django.urls import path
 
-# urlpatterns = [
-#     path('admin/'),
+from area.views import DhakaArea
 
-# ]
+urlpatterns = [
+    path('', DhakaArea, name='home'),
+
+]
