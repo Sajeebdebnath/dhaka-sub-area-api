@@ -1,4 +1,4 @@
-from rest_framework import status
+from rest_framework import filters, generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -42,5 +42,13 @@ def dhakaArea_details(request,name):
     if request.method == 'DELETE':
         dhaka.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class CityList(generics.ListAPIView):
+    queryset = DhakaSubArea.objects.all()
+    serializer_class = DhakaSubAreaSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['^name', 'bn_name']
+
 
 
