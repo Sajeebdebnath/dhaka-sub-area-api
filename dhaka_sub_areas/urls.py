@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .views import getRoutes
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/dhaka_sub_area/', include('area.urls')),
-    path('api-auth/', include('rest_framework.urls'))
+    path('', getRoutes, name="home"),
+    path('api/area/', include('area.urls')),
 ]
